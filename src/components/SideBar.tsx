@@ -9,9 +9,9 @@ import { MdOutlineDashboard, MdShowChart } from 'react-icons/md';
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <aside className={`h-dvh border-gray border-r bg-white ${isOpen ? 'w-[20%]' : 'w-20'}`}>
+    <aside className={`h-dvh border-gray border-r bg-white ${isOpen ? 'w-[20%]' : 'w-20'} sticky top-0`}>
       {/* logo */}
-      <div className={`border-b p-2 flex border-gray ${isOpen ? 'pl-5' : 'justify-center'}`}>
+      <div className={`border-b p-2 h-14 flex border-gray ${isOpen ? 'pl-5' : 'justify-center'}`}>
         {/* shows logo or shows collapse icon depending if it is open or not  */}
         {isOpen ? (
           <span className="flex items-center justify-between w-full">
@@ -22,7 +22,7 @@ const SideBar = () => {
               {/* shows the the logo text when its open only */}
               {isOpen && <h2 className="text-2xl font-medium">TradeLog</h2>}
             </span>
-
+            {/* show collapse icon when open */}
             <span className="sidebar-Buttons text-gray-500" onClick={() => setIsOpen((prev) => !prev)}>
               <FiSidebar size={23} />
             </span>

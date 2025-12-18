@@ -4,11 +4,13 @@ import SideBar from '../components/SideBar';
 
 const Root = () => {
   return (
-    <main className=" flex">
+    <main className="flex h-dvh ">
       <SideBar />
-      <section>
+      <section className="w-full flex flex-col">
         <Header />
-        <Outlet />
+        <section className="bg-stone-50 grow ">
+          <Outlet />
+        </section>
       </section>
     </main>
   );

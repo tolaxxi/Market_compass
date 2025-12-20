@@ -6,11 +6,17 @@ import { IoMdBook } from 'react-icons/io';
 import { LuSettings } from 'react-icons/lu';
 import { MdOutlineDashboard, MdShowChart } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from '../app/store';
+import { open, close } from '../features/sidebar/sidebarSlice';
 
 const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = useSelector((state: RootState) => state.sidebar.isOpen);
+  const dispatch = useDispatch();
+
   const [isHovering, setIsHovering] = useState(false);
 
+  // function to show/ hide collapse icon to show if mouse is in or out of the logo
   const handleMouseEnter = () => {
     setIsHovering((prev) => !prev);
   };
@@ -19,7 +25,7 @@ const SideBar = () => {
     setIsHovering(false);
   };
   return (
-    <aside className={`h-dvh border-gray border-r bg-white ${isOpen ? 'w-[25%]' : 'w-14'} sticky top-0`}>
+    <aside className={`h-dvh border-gray border-r ${isOpen ? 'w-[25%]' : 'w-14'} sticky top-0 bg-white`}>
       {/* logo */}
       <div className={`border-b p-2 h-13 flex border-gray ${isOpen ? 'px-6' : 'justify-center'}`}>
         {/* shows logo or shows collapse icon depending if it is open or not  */}
@@ -29,7 +35,7 @@ const SideBar = () => {
             <button
               className="text-2xl p-2 text-gray-500"
               onMouseLeave={handleMouseLeave}
-              onClick={() => setIsOpen(true)}
+              onClick={() => dispatch(open())}
             >
               <FiSidebar size={23} />
             </button>
@@ -44,7 +50,7 @@ const SideBar = () => {
           )}
           {/* show collapse icon when open */}
           {isOpen && (
-            <span className="flex items-center gap-3 text-gray-500" onClick={() => setIsOpen((prev) => !prev)}>
+            <span className="flex items-center gap-3 text-gray-500" onClick={() => dispatch(close())}>
               <FiSidebar size={23} />
             </span>
           )}
@@ -69,10 +75,16 @@ const SideBar = () => {
           <BiLineChart size={23} /> {isOpen && <h2 className="side-buttons-text">Market Watch</h2>}
         </NavLink>
 
-        <NavLink to="/trade journal" className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}>
+        <NavLink
+          to="/trade journal"
+          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
+        >
           <IoMdBook size={23} /> {isOpen && <h2 className="side-buttons-text">Trade Journal</h2>}
         </NavLink>
-        <NavLink to="/analytics" className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}>
+        <NavLink
+          to="/analytics"
+          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
+        >
           <AiOutlineBarChart size={23} /> {isOpen && <h2 className="side-buttons-text">Analytics</h2>}
         </NavLink>
 

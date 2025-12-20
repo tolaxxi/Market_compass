@@ -1,8 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import 'tailwindcss';
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
 .border-gray {
   @apply border-gray-300;
 }
 .sidebar-Buttons {
-  @apply flex items-center gap-2 text-sm font-medium;
+  @apply flex items-center gap-3;
+}
+.sidebar-Buttons-hover {
+  @apply hover:bg-indigo-50 rounded-xl  p-3 hover:text-black;
+}
+.sidebar-Buttons-open {
+  @apply w-full;
+}
+.side-buttons-text {
+  @apply text-sm font-medium capitalize;
+}
+.dropdown-menu {
+  @apply w-35 bg-white px-5 absolute top-9.5 flex flex-col py-3 rounded-md border  border-gray-300 gap-2;
+}
+.active {
+  @apply bg-indigo-50 text-black;
 }

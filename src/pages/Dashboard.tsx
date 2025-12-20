@@ -1,8 +1,12 @@
+import OverviewCard from '../components/OverviewCard';
+
 const Dashboard = () => {
   return (
-    <div className="text-red-500">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga corrupti debitis deleniti ipsum, impedit soluta
-      aspernatur ea quaerat accusantium omnis! Officiis, eligendi vel. Aut voluptate porro nemo iure, aliquid expedita.
+    <div className="flex gap-5 w-full justify-center ">
+      <OverviewCard />
+      <OverviewCard />
+      <OverviewCard />
+      <OverviewCard />
     </div>
   );
 };

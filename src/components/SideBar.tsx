@@ -5,6 +5,7 @@ import { FiSidebar } from 'react-icons/fi';
 import { IoMdBook } from 'react-icons/io';
 import { LuSettings } from 'react-icons/lu';
 import { MdOutlineDashboard, MdShowChart } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +19,9 @@ const SideBar = () => {
     setIsHovering(false);
   };
   return (
-    <aside className={`h-dvh border-gray border-r bg-white ${isOpen ? 'w-[20%]' : 'w-12'} sticky top-0`}>
+    <aside className={`h-dvh border-gray border-r bg-white ${isOpen ? 'w-[25%]' : 'w-14'} sticky top-0`}>
       {/* logo */}
-      <div className={`border-b p-2 h-14 flex border-gray ${isOpen ? 'pl-5' : 'justify-center'}`}>
+      <div className={`border-b p-2 h-13 flex border-gray ${isOpen ? 'px-6' : 'justify-center'}`}>
         {/* shows logo or shows collapse icon depending if it is open or not  */}
 
         <span className="flex items-center justify-between w-full">
@@ -34,7 +35,7 @@ const SideBar = () => {
             </button>
           ) : (
             <span className="gap-2 flex items-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button className="bg-indigo-400 p-1.5 text-white text-2xl font-medium rounded-lg">
+              <button className="bg-black p-1.5 text-white text-2xl font-medium rounded-lg">
                 <MdShowChart />
               </button>
               {/* shows the the logo text when its open only */}
@@ -43,7 +44,7 @@ const SideBar = () => {
           )}
           {/* show collapse icon when open */}
           {isOpen && (
-            <span className="sidebar-Buttons text-gray-500" onClick={() => setIsOpen((prev) => !prev)}>
+            <span className="flex items-center gap-3 text-gray-500" onClick={() => setIsOpen((prev) => !prev)}>
               <FiSidebar size={23} />
             </span>
           )}
@@ -52,26 +53,32 @@ const SideBar = () => {
 
       {/* pages buttons */}
       <div
-        className={`flex-col flex ${isOpen ? 'items-start pl-5' : 'items-center'} gap-5 pt-5 text-2xl text-gray-500`}
+        className={`flex-col flex ${isOpen ? 'items-start px-4 ' : 'items-center '} pt-3 px-4  text-2xl text-gray-500`}
       >
-        <span className="sidebar-Buttons">
-          <MdOutlineDashboard size={23} /> {isOpen && <h2>Dashboard</h2>}
-        </span>
+        <NavLink
+          to="/dashboard"
+          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
+        >
+          <MdOutlineDashboard size={23} /> {isOpen && <h2 className="side-buttons-text">Dashboard</h2>}
+        </NavLink>
 
-        <span className="sidebar-Buttons">
-          <BiLineChart size={23} /> {isOpen && <h2>Market Watch</h2>}
-        </span>
+        <NavLink
+          to="/market watch"
+          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
+        >
+          <BiLineChart size={23} /> {isOpen && <h2 className="side-buttons-text">Market Watch</h2>}
+        </NavLink>
 
-        <span className="sidebar-Buttons">
-          <IoMdBook size={23} /> {isOpen && <h2>Trade Journal</h2>}
-        </span>
-        <span className="sidebar-Buttons">
-          <AiOutlineBarChart size={23} /> {isOpen && <h2>Analytics</h2>}
-        </span>
+        <NavLink to="/trade journal" className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}>
+          <IoMdBook size={23} /> {isOpen && <h2 className="side-buttons-text">Trade Journal</h2>}
+        </NavLink>
+        <NavLink to="/analytics" className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}>
+          <AiOutlineBarChart size={23} /> {isOpen && <h2 className="side-buttons-text">Analytics</h2>}
+        </NavLink>
 
-        <span className="sidebar-Buttons">
-          <LuSettings size={23} /> {isOpen && <h2>settings</h2>}
-        </span>
+        <NavLink to="/settings" className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}>
+          <LuSettings size={23} /> {isOpen && <h2 className="side-buttons-text">settings</h2>}
+        </NavLink>
       </div>
     </aside>
   );

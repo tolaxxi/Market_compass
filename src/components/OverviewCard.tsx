@@ -1,6 +1,16 @@
+import { useSelector } from 'react-redux';
+import type { RootState } from '../app/store';
+
 const OverviewCard = () => {
+  // check if sidebar state is open or false
+  const isSidebarOpen = useSelector((state: RootState) => state.sidebar.isOpen);
+
   return (
-    <div className="border border-gray w-70 rounded-lg bg-white p-3 flex flex-col gap-5 justify-center relative">
+    <div
+      className={`border border-gray ${
+        isSidebarOpen ? 'w-65' : 'w-70 justify-center'
+      } rounded-lg bg-white p-3 flex flex-col gap-5  relative`}
+    >
       <div className="flex w-full items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Total P&L</h2>
 

@@ -19,7 +19,7 @@ const OverviewCard = () => {
 
       <div className="flex-col flex gap-1">
         <h2 className="font-medium text-xl">$1223,778</h2>
-        <p className="text-xs text-slate-600 font-medium">Than last week</p>
+        <p className="text-xs text-slate-400">Than last week</p>
       </div>
       <button className="absolute border rounded-2xl bg-green-100 px-2 text-xs border-green-600 text-green-600 top-20 right-5">
         ?2.4%

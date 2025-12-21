@@ -9,6 +9,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../app/store';
 import { open, close } from '../features/sidebar/sidebarSlice';
+import { NavItems } from '../utils/constant';
 
 const SideBar = () => {
   const isOpen = useSelector((state: RootState) => state.sidebar.isOpen);
@@ -25,7 +26,9 @@ const SideBar = () => {
     setIsHovering(false);
   };
   return (
-    <aside className={`h-dvh border-gray border-r ${isOpen ? 'w-[20%]' : 'w-14'} sticky top-0 bg-white`}>
+    <aside
+      className={`h-dvh border-gray border-r ${isOpen ? 'w-[20%]' : 'w-14'} sticky top-0 bg-white hidden lg:block`}
+    >
       {/* logo */}
       <div className={`border-b p-2 h-13 flex border-gray ${isOpen ? 'px-6' : 'justify-center'}`}>
         {/* shows logo or shows collapse icon depending if it is open or not  */}
@@ -69,36 +72,18 @@ const SideBar = () => {
       <div
         className={`flex-col flex ${isOpen ? 'items-start px-4 ' : 'items-center '} pt-3 px-4  text-2xl text-gray-500`}
       >
-        <NavLink
-          to="/dashboard"
-          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
-        >
-          <MdOutlineDashboard size={23} /> {isOpen && <h2 className="side-buttons-text">Dashboard</h2>}
-        </NavLink>
-
-        <NavLink
-          to="/market watch"
-          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
-        >
-          <BiLineChart size={23} /> {isOpen && <h2 className="side-buttons-text">Market Watch</h2>}
-        </NavLink>
-
-        <NavLink
-          to="/trade journal"
-          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
-        >
-          <IoMdBook size={23} /> {isOpen && <h2 className="side-buttons-text">Trade Journal</h2>}
-        </NavLink>
-        <NavLink
-          to="/analytics"
-          className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
-        >
-          <AiOutlineBarChart size={23} /> {isOpen && <h2 className="side-buttons-text">Analytics</h2>}
-        </NavLink>
-
-        <NavLink to="/settings" className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}>
-          <LuSettings size={23} /> {isOpen && <h2 className="side-buttons-text">settings</h2>}
-        </NavLink>
+        {/* get the nav items and map over them */}
+        {NavItems.map(({ label, path, icon: Icon }) => {
+          return (
+            <NavLink
+              to={path}
+              key={label}
+              className={`sidebar-Buttons ${isOpen && 'sidebar-Buttons-open'} sidebar-Buttons-hover`}
+            >
+              {<Icon size={23} />} {isOpen && <h2 className="side-buttons-text">{label}</h2>}
+            </NavLink>
+          );
+        })}
       </div>
     </aside>
   );

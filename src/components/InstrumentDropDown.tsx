@@ -7,7 +7,7 @@ const InstrumentDropDown = () => {
   return (
     <section className="relative">
       <div
-        className=" rounded-lg border border-gray w-25 p-1.5 flex items-center justify-between font-medium"
+        className=" dropdown-btn border border-gray justify-between w-15 md:w-25"
         onClick={() => setIsActive((prev) => !prev)}
       >
         forex
@@ -16,7 +16,7 @@ const InstrumentDropDown = () => {
       {isActive && (
         <div className="dropdown-menu">
           {instruments.map((instrument) => {
-            return <p>{instrument}</p>;
+            return <p key={instrument}>{instrument}</p>;
           })}
         </div>
       )}

@@ -20,8 +20,11 @@ body {
 .side-buttons-text {
   @apply text-sm font-medium capitalize;
 }
+.dropdown-btn {
+  @apply rounded-lg  p-1.5 flex items-center gap-2 font-medium text-nowrap;
+}
 .dropdown-menu {
-  @apply w-35 bg-white px-5 absolute top-9.5 flex flex-col py-3 rounded-md border  border-gray-300 gap-2;
+  @apply w-30 bg-white px-5 absolute top-10 flex flex-col py-3 rounded-md border  border-gray-300 gap-2;
 }
 .active {
   @apply bg-indigo-50 text-black;

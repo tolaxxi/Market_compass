@@ -8,12 +8,12 @@ const TimeFrameDropDown = () => {
   return (
     <section className=" relative">
       <div
-        className="  hover:bg-gray-200 rounded-lg w-25  p-1.5 flex items-center justify-between font-medium text-nowrap"
+        className="  hover:bg-gray-200 w-15 dropdown-btn"
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
       >
-        1 month
+        1M
         <IoIosArrowDown />
       </div>
       {isActive && (

@@ -7,10 +7,10 @@ const InstrumentDropDown = () => {
   return (
     <section className="relative">
       <div
-        className=" dropdown-btn border border-gray justify-between w-15 md:w-25"
+        className=" dropdown-btn border border-gray justify-between w-20 md:w-25 capitalize"
         onClick={() => setIsActive((prev) => !prev)}
       >
-        forex
+        <h2>forex</h2>
         <IoIosArrowDown />
       </div>
       {isActive && (

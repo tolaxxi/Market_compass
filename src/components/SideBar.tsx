@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import { AiOutlineBarChart } from 'react-icons/ai';
-import { BiLineChart } from 'react-icons/bi';
 import { FiSidebar } from 'react-icons/fi';
-import { IoMdBook } from 'react-icons/io';
-import { LuSettings } from 'react-icons/lu';
-import { MdOutlineDashboard, MdShowChart } from 'react-icons/md';
+import { MdShowChart } from 'react-icons/md';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../app/store';

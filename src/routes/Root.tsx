@@ -1,8 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
 import SideBar from '../components/SideBar';
-import InstrumentDropDown from '../components/InstrumentDropDown';
-import TimeFrameDropDown from '../components/TimeFrameDropDown';
 import MobileMenu from '../components/MobileMenu';
 
 const Root = () => {

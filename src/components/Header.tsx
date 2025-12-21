@@ -4,9 +4,9 @@ import SearchBar from './SearchBar';
 import { useMatches } from 'react-router-dom';
 import TimeFrameDropDown from './TimeFrameDropDown';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from '../app/store';
+import { useDispatch } from 'react-redux';
 import { open } from '../features/sidebar/sidebarSlice';
+import ProfileIcon from './ProfileIcon';
 
 type AppRouteHandle = {
   title?: string;
@@ -16,8 +16,6 @@ const Header = () => {
   const matches = useMatches() as { handle?: AppRouteHandle }[];
 
   const title = matches.at(-1)?.handle?.title ?? 'App';
-
-  const isOpen = useSelector((state: RootState) => state.sidebar.isOpen);
 
   const dispatch = useDispatch();
   return (
@@ -31,7 +29,7 @@ const Header = () => {
 
         {/* search ,notification and profile avatar */}
         <div className="flex items-center gap-3">
-          {/* <button className="bg-indigo-100 rounded-full w-9 h-9 uppercase">Jd</button> */}
+          <ProfileIcon />
           <NotificationBtn />
           <SearchBar />
           <InstrumentDropDown />

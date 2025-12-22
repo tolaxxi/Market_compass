@@ -31,7 +31,7 @@ const MobileMenu = () => {
         <div className="pt-4 flex flex-col px-3">
           {NavItems.map(({ path, label, icon: Icon }) => {
             return (
-              <NavLink to={path} key={label} className="flex gap-2 items-center px-2 py-2 rounded-xl font-medium">
+              <NavLink to={path} key={label} className="flex gap-2 items-center px-2 py-2 rounded-xl text-gray-500 font-medium">
                 <Icon />
                 {label}
               </NavLink>

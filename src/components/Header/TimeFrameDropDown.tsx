@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { timeFrames } from '../utils/constant';
+import { timeFrames } from '../../utils/constant';
 import { IoIosArrowDown } from 'react-icons/io';
 
 const TimeFrameDropDown = () => {
@@ -8,7 +8,7 @@ const TimeFrameDropDown = () => {
   return (
     <section className=" relative">
       <div
-        className="  hover:bg-gray-200 w-15 dropdown-btn"
+        className="  hover:bg-gray-200 w-15 dropdown-btn font-medium"
         onClick={() => {
           setIsActive((prev) => !prev);
         }}
@@ -18,8 +18,8 @@ const TimeFrameDropDown = () => {
       </div>
       {isActive && (
         <div className="dropdown-menu">
-          {timeFrames.map((time) => {
-            return <p>{time}</p>;
+          {timeFrames.map(({ label, symbol }) => {
+            return <p key={symbol}>{label}</p>;
           })}
         </div>
       )}

@@ -5,7 +5,14 @@ import { BiLineChart } from 'react-icons/bi';
 import { IoMdBook } from 'react-icons/io';
 
 export const instruments = ['Forex', 'Crypto', 'Stocks', 'Futures'];
-export const timeFrames = ['1 Day', '1 Week', '1 Month', '3 Month', '1 Year'];
+
+export const timeFrames = [
+  { label: '1 Day', symbol: 'D' },
+  { label: '1 Week', symbol: 'w' },
+  { label: '1 Month', symbol: '1M' },
+  { label: '3 Month', symbol: '3M' },
+  { label: '1 Year', symbol: '1Y' },
+];
 
 export const NavItems = [
   { label: 'Dashboard', path: '/dashboard', icon: MdOutlineDashboard },
@@ -14,3 +21,6 @@ export const NavItems = [
   { label: 'Analytics', path: '/analytics', icon: AiOutlineBarChart },
   { label: 'Settings', path: '/settings', icon: LuSettings },
 ];
+export const direction = ['long', 'short'];
+
+export const results = ['win', 'loss', 'breakeven'];

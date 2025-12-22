@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { instruments } from '../utils/constant.ts';
+import { instruments } from '../../utils/constant.ts';
 import { IoIosArrowDown } from 'react-icons/io';
 
 const InstrumentDropDown = () => {

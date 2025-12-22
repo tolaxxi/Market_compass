@@ -1,6 +1,6 @@
 // import OverviewCard from '../components/OverviewCard';
 import OverviewCard from '../components/OverviewCard';
-import WatchlistCard from '../components/WatchlistCard';
+import WatchlistCard from '../components/WatchList/WatchlistCard';
 
 const Dashboard = () => {
   return (

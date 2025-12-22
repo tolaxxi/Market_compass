@@ -24,8 +24,19 @@ body {
   @apply rounded-lg  p-1.5 flex items-center gap-2 font-medium text-nowrap;
 }
 .dropdown-menu {
-  @apply w-30 bg-white px-5 absolute top-10 flex flex-col py-3 rounded-md border  border-gray-300 gap-2;
+  @apply w-30 bg-white px-5 absolute right-1 top-10 flex flex-col py-3 rounded-md border  border-gray-300 gap-2;
 }
+
+.addTradeInputSections {
+  @apply flex text-xs text-gray-900 capitalize font-medium justify-between w-full;
+}
+.newTradeInputs {
+  @apply border border-gray-300  p-2 rounded-lg text-sm outline-0 md:w-52 font-light mt-2;
+}
+.newTradeDropdownMenu {
+  @apply w-52 rounded-lg  absolute top-11 p-2;
+}
+/* active class for the Nav links */
 .active {
   @apply bg-indigo-50 text-black;
 }

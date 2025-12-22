@@ -1,6 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { open } from '../features/TradingJournal/addTradePopSlice';
 const TradeJournal = () => {
+  const dispatch = useDispatch();
+
   return (
-    <div>TradeJournal</div>
-  )
-}
-export default TradeJournal
+    <div>
+      <button onClick={() => dispatch(open())}>Add Trade</button>
+    </div>
+  );
+};
+export default TradeJournal;

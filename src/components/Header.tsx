@@ -1,8 +1,8 @@
-import InstrumentDropDown from './InstrumentDropDown';
+import InstrumentDropDown from './Header/InstrumentDropDown';
 import NotificationBtn from './NotificationBtn';
 import SearchBar from './SearchBar';
 import { useMatches } from 'react-router-dom';
-import TimeFrameDropDown from './TimeFrameDropDown';
+import TimeFrameDropDown from './Header/TimeFrameDropDown';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useDispatch } from 'react-redux';
 import { open } from '../features/sidebar/sidebarSlice';
